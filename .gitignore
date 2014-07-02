@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # History files
 .Rhistory
 
@@ -6,3 +7,17 @@
 
 # R data files from past sessions
 .Rdata
+=======
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> 50e29e071c0ff6400eb039975a507afe3d994936
