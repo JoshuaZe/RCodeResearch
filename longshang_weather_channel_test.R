@@ -332,4 +332,16 @@ venn.plot
 #####
 # Inferential statistic
 #####
-#logistic regression
+#####
+# test for independence
+# Correspondence analysis
+# C2.34”ÎC2.35_1_2_3_88
+#####
+table(fdata$C2.34,factor(rowSums(data[,2:4])))
+summary(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+chisq.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+fisher.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+mcnemar.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))),correct=FALSE)
+#Correspondence analysis
+ca(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+plot(ca(table(fdata$C2.34,factor(rowSums(data[,2:4])))))
