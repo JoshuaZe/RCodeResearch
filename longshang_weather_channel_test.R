@@ -339,9 +339,49 @@ venn.plot
 #####
 table(fdata$C2.34,factor(rowSums(data[,2:4])))
 summary(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
-chisq.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
-fisher.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
-mcnemar.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))),correct=FALSE)
+#chisq.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+#fisher.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+#mcnemar.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))),correct=FALSE)
 #Correspondence analysis
+library(ca)
 ca(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
 plot(ca(table(fdata$C2.34,factor(rowSums(data[,2:4])))))
+#####
+# test for independence
+# Correspondence analysis
+# C2.36_1_2_3_4”ÎC2.35_1_2_3_88
+#####
+#analysis on the amount of likes
+table(factor(rowSums(data[,6:9])),factor(rowSums(data[,2:4])))
+summary(table(factor(rowSums(data[,6:9])),factor(rowSums(data[,2:4]))))
+#chisq.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+#fisher.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))))
+#mcnemar.test(table(fdata$C2.34,factor(rowSums(data[,2:4]))),correct=FALSE)
+#Correspondence analysis
+library(ca)
+ca(table(factor(rowSums(data[,6:9])),factor(rowSums(data[,2:4]))))
+plot(ca(table(factor(rowSums(data[,6:9])),factor(rowSums(data[,2:4])))))
+#analysis on the types of likes
+x1<-table(fdata$C2.36_1,factor(rowSums(data[,2:4])))
+x1
+summary(x1)
+x2<-table(fdata$C2.36_2,factor(rowSums(data[,2:4])))
+x2
+summary(x2)
+x3<-table(fdata$C2.36_3,factor(rowSums(data[,2:4])))
+x3
+summary(x3)
+x4<-table(fdata$C2.36_4,factor(rowSums(data[,2:4])))
+x4
+summary(x4)
+x<-matrix(1,4,4)
+x[1,]<-x1[2,]/(x1[1,]+x1[2,])
+x[2,]<-x2[2,]/(x2[1,]+x2[2,])
+x[3,]<-x3[2,]/(x3[1,]+x3[2,])
+x[4,]<-x4[2,]/(x4[1,]+x4[2,])
+x<-as.table(x)
+colnames(x)<-c("0","1","2","3")
+row.names(x)<-c("1","2","3","4")
+summary(x)
+x
+plot(ca(x))
