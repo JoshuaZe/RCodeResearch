@@ -1,10 +1,10 @@
-setwd("F:/Desktop/Accenture1/ok_Matlab To R/JsonMaptoExcel")
+setwd("")
 #import data
 data.col.types<-c('character',
                   'character'
 )
 data.raw<-read.csv("./location.csv",colClasses=data.col.types,na.strings="NA",stringsAsFactors=F)
-dim(data.raw)
+#dim(data.raw)
 #fix(data.raw)
 #preprocessing
 nrow(data.raw)
